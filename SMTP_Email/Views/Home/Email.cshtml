@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Email Sender✔</h1>
+    <h2>Form</h2>
+</div>
+@using (Html.BeginForm("Email", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="row">
+        <div class="form-floating col-md-4">
+            <input type="email" placeholder="To Email" class="form-control" name="ToEmail" />
+        </div>
+        <div class="form-floating col-md-2">
+            <input type="file" class="form-control" name="fileToAttach" />
+        </div>
+        <div class="form-floating col-md-6">
+            <input type="submit" value="Send Email" class="btn btn-success" />
+        </div>
+    </div>
+}
+@if (ViewBag.emailsentmessage != null)
+{
+    <div class="bg-success">
+        <label>@ViewBag.emailsentmessage</label>
+    </div>
+}
